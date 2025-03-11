@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LOF';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Tugas 2" href="tugas2.html" />
+    <link rel="prev" title="Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding" href="knn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,10 +171,11 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas_1.html">Tugas 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tugas2.html">Tugas 2</a></li>
-
-
-
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tugas2.html">Tugas 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="knn.html"><strong>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</strong></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</strong></a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -367,15 +368,11 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-lof"><strong>pengertian LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-dalam-lof"><strong>Tahapan dalam LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghitung-manual-lof"><strong>Contoh Menghitung manual Lof</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh"><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh"><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong></a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -386,7 +383,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="deteksi-outlier-dengan-metode-local-outlier-factor-lof-dalam-data-understanding">
+  <section class="tex2jax_ignore mathjax_ignore" id="deteksi-outlier-dengan-metode-local-outlier-factor-lof-dalam-data-understanding">
 <h1><strong>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</strong><a class="headerlink" href="#deteksi-outlier-dengan-metode-local-outlier-factor-lof-dalam-data-understanding" title="Link to this heading">#</a></h1>
 <section id="pengertian-lof">
 <h2><strong>pengertian LOF</strong><a class="headerlink" href="#pengertian-lof" title="Link to this heading">#</a></h2>
@@ -493,9 +490,8 @@ Karena <strong>LOF = 2</strong> (lebih besar dari 1), titik 3 dianggap <strong>o
 </ol>
 <p>LOF mengukur seberapa terisolasi titik dibandingkan tetangganya. Titik dengan LOF lebih besar dari 1 dianggap outlier.</p>
 </section>
-</section>
 <section id="implementasi-pakai-sklearn-untuk-data-contoh">
-<h1><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong><a class="headerlink" href="#implementasi-pakai-sklearn-untuk-data-contoh" title="Link to this heading">#</a></h1>
+<h2><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong><a class="headerlink" href="#implementasi-pakai-sklearn-untuk-data-contoh" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -840,6 +836,7 @@ Data Outlier:
 <p>Setelah itu, hanya kolom fitur numerik “petal_length”, “petal_width”, “sepal_length”, dan “sepal_width” yang diambil untuk dianalisis. Data ini kemudian digunakan sebagai input untuk model Local Outlier Factor (LOF), yang diinisialisasi dengan 90 tetangga terdekat. Model ini menghitung kepadatan lokal dari setiap titik data dan membandingkannya dengan tetangga terdekatnya untuk mengidentifikasi apakah suatu titik merupakan outlier atau tidak.</p>
 <p>Hasil prediksi dari LOF berupa label 1 untuk data normal dan -1 untuk outlier. Label ini ditambahkan ke dalam dataset yang telah digabungkan. Kemudian, jumlah total outlier dihitung dan ditampilkan, serta seluruh data yang terdeteksi sebagai outlier ditampilkan secara terpisah untuk analisis lebih lanjut.</p>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -872,12 +869,12 @@ Data Outlier:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="tugas2.html"
+       href="knn.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tugas 2</p>
+        <p class="prev-next-title"><strong>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</strong></p>
       </div>
     </a>
 </div>
@@ -897,15 +894,11 @@ Data Outlier:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-lof"><strong>pengertian LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-dalam-lof"><strong>Tahapan dalam LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghitung-manual-lof"><strong>Contoh Menghitung manual Lof</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh"><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh"><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong></a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

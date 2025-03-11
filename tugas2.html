@@ -172,10 +172,11 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas_1.html">Tugas 1</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 2</a></li>
-
-
-
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Tugas 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="knn.html"><strong>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOF.html"><strong>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</strong></a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -368,18 +369,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-outlayer-deteksi"><strong>PENJELASAN OUTLAYER DETEKSI</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deteksi-outlier-dengan-knn"><strong>Langkah-Langkah Deteksi Outlier dengan KNN:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan-metode-knn-untuk-deteksi-outlier"><strong>Kelebihan Metode KNN untuk Deteksi Outlier:</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan-metode-knn-untuk-deteksi-outlier"><strong>Kekurangan Metode KNN untuk Deteksi Outlier:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-di-bawah-adalah">PENJELASAN KODE DI BAWAH ADALAH :</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-ini-digunakan-untuk"><strong>Kode ini digunakan untuk:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-ini"><strong>Penjelasan kode ini:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-outlayer-deteksi"><strong>PENJELASAN OUTLAYER DETEKSI</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deteksi-outlier-dengan-knn"><strong>Langkah-Langkah Deteksi Outlier dengan KNN:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan-metode-knn-untuk-deteksi-outlier"><strong>Kelebihan Metode KNN untuk Deteksi Outlier:</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan-metode-knn-untuk-deteksi-outlier"><strong>Kekurangan Metode KNN untuk Deteksi Outlier:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-di-bawah-adalah">PENJELASAN KODE DI BAWAH ADALAH :</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-ini-digunakan-untuk"><strong>Kode ini digunakan untuk:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-ini"><strong>Penjelasan kode ini:</strong></a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -390,15 +389,14 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="tugas-2">
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-2">
 <h1>Tugas 2<a class="headerlink" href="#tugas-2" title="Link to this heading">#</a></h1>
-</section>
 <section id="penjelasan-outlayer-deteksi">
-<h1><strong>PENJELASAN OUTLAYER DETEKSI</strong><a class="headerlink" href="#penjelasan-outlayer-deteksi" title="Link to this heading">#</a></h1>
+<h2><strong>PENJELASAN OUTLAYER DETEKSI</strong><a class="headerlink" href="#penjelasan-outlayer-deteksi" title="Link to this heading">#</a></h2>
 <p>Deteksi outlier menggunakan metode K-Nearest Neighbors (KNN) merupakan salah satu teknik yang digunakan untuk mengidentifikasi data yang menyimpang dari pola mayoritas. KNN bekerja dengan cara mengukur jarak antara satu data dengan data lainnya dalam dataset. Jika sebuah data memiliki jarak yang jauh dari tetangga terdekatnya, maka data tersebut berpotensi sebagai outlier. Metode ini sangat berguna pada tahap Data Understanding karena dapat membantu menemukan data ekstrem yang mungkin mempengaruhi hasil analisis atau pemodelan.</p>
 </section>
 <section id="langkah-langkah-deteksi-outlier-dengan-knn">
-<h1><strong>Langkah-Langkah Deteksi Outlier dengan KNN:</strong><a class="headerlink" href="#langkah-langkah-deteksi-outlier-dengan-knn" title="Link to this heading">#</a></h1>
+<h2><strong>Langkah-Langkah Deteksi Outlier dengan KNN:</strong><a class="headerlink" href="#langkah-langkah-deteksi-outlier-dengan-knn" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>Menentukan Nilai k</p>
 <p>Langkah pertama adalah menentukan jumlah tetangga terdekat (k) yang akan digunakan untuk menghitung jarak. Nilai k ini bisa ditentukan berdasarkan eksperimen, dengan angka umum berkisar antara 5 hingga 20.</p>
@@ -416,10 +414,10 @@ Terakhir, ditentukan ambang batas (threshold) untuk memisahkan mana data yang di
 </ul>
 </section>
 <section id="kelebihan-metode-knn-untuk-deteksi-outlier">
-<h1><strong>Kelebihan Metode KNN untuk Deteksi Outlier:</strong><a class="headerlink" href="#kelebihan-metode-knn-untuk-deteksi-outlier" title="Link to this heading">#</a></h1>
+<h2><strong>Kelebihan Metode KNN untuk Deteksi Outlier:</strong><a class="headerlink" href="#kelebihan-metode-knn-untuk-deteksi-outlier" title="Link to this heading">#</a></h2>
 <p>Metode KNN memiliki beberapa kelebihan dalam mendeteksi outlier. Pertama, KNN merupakan metode yang sederhana dan mudah dipahami karena hanya mengandalkan perhitungan jarak antar data. Kedua, KNN bersifat non-parametrik, sehingga tidak memerlukan asumsi khusus mengenai distribusi data. Ketiga, metode ini cocok digunakan pada data berdimensi tinggi serta mampu mendeteksi outlier lokal, yaitu data yang menyimpang dalam kelompok atau cluster tertentu.</p>
 <section id="kekurangan-metode-knn-untuk-deteksi-outlier">
-<h2><strong>Kekurangan Metode KNN untuk Deteksi Outlier:</strong><a class="headerlink" href="#kekurangan-metode-knn-untuk-deteksi-outlier" title="Link to this heading">#</a></h2>
+<h3><strong>Kekurangan Metode KNN untuk Deteksi Outlier:</strong><a class="headerlink" href="#kekurangan-metode-knn-untuk-deteksi-outlier" title="Link to this heading">#</a></h3>
 <p>Meskipun memiliki banyak kelebihan, KNN juga memiliki beberapa kekurangan. Salah satunya adalah sensitivitas terhadap pemilihan nilai k, di mana nilai k yang tidak tepat bisa membuat hasil deteksi menjadi tidak akurat. Selain itu, metode ini cukup mahal secara komputasi, terutama jika digunakan pada dataset yang berukuran besar, karena harus menghitung jarak antar seluruh data. KNN juga cenderung tidak tahan terhadap noise dan data duplikat yang dapat memengaruhi hasil deteksi outlier. Selain itu, metode ini sangat bergantung pada skala data, sehingga sebelum menggunakan KNN, data perlu dinormalisasi agar jarak yang dihitung menjadi lebih akurat.</p>
 <p><strong>%pip install pymysql</strong> Digunakan menginstal library PyMySQL, yaitu library Python yang digunakan untuk menghubungkan Python dengan database MySQL. Dengan library ini, kita bisa menjalankan query SQL seperti SELECT, INSERT, UPDATE, DELETE dari Python ke database MySQL.</p>
 <p><strong>%pip install psycopg2</strong> Digunakan Menginstal library psycopg2, yaitu library Python yang digunakan untuk menghubungkan Python dengan database PostgreSQL. Library ini juga memungkinkan kita menjalankan perintah SQL ke database PostgreSQL langsung dari Python.</p>
@@ -455,7 +453,7 @@ Terakhir, ditentukan ambang batas (threshold) untuk memisahkan mana data yang di
 </div>
 </section>
 <section id="penjelasan-kode-di-bawah-adalah">
-<h2>PENJELASAN KODE DI BAWAH ADALAH :<a class="headerlink" href="#penjelasan-kode-di-bawah-adalah" title="Link to this heading">#</a></h2>
+<h3>PENJELASAN KODE DI BAWAH ADALAH :<a class="headerlink" href="#penjelasan-kode-di-bawah-adalah" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Mengimpor Library</p>
 <p>Menggunakan library seperti psycopg2 (PostgreSQL), pymysql (MySQL), numpy, pandas, seaborn, matplotlib, dan scipy untuk kebutuhan koneksi database, pengolahan data, perhitungan jarak, dan visualisasi.</p>
@@ -744,7 +742,7 @@ Grafik 2: petal_length vs. petal_width.</p>
 </div>
 </section>
 <section id="kode-ini-digunakan-untuk">
-<h2><strong>Kode ini digunakan untuk:</strong><a class="headerlink" href="#kode-ini-digunakan-untuk" title="Link to this heading">#</a></h2>
+<h3><strong>Kode ini digunakan untuk:</strong><a class="headerlink" href="#kode-ini-digunakan-untuk" title="Link to this heading">#</a></h3>
 <p>Menghitung total outlier yang berhasil dideteksi pada data</p>
 <ul class="simple">
 <li><p>df_merged[“outlier”].sum() Kolom “outlier” berisi nilai True (outlier) dan False (bukan outlier).</p></li>
@@ -771,7 +769,7 @@ Grafik 2: petal_length vs. petal_width.</p>
 </div>
 </section>
 <section id="penjelasan-kode-ini">
-<h2><strong>Penjelasan kode ini:</strong><a class="headerlink" href="#penjelasan-kode-ini" title="Link to this heading">#</a></h2>
+<h3><strong>Penjelasan kode ini:</strong><a class="headerlink" href="#penjelasan-kode-ini" title="Link to this heading">#</a></h3>
 <p>Mengurutkan data berdasarkan jarak Euclidean.</p>
 <ul class="simple">
 <li><p>Kode ini mengurutkan DataFrame df_merged berdasarkan kolom “distance”.</p></li>
@@ -951,6 +949,7 @@ Grafik 2: petal_length vs. petal_width.</p>
 </div>
 </div>
 </section>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -1020,18 +1019,16 @@ Grafik 2: petal_length vs. petal_width.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-outlayer-deteksi"><strong>PENJELASAN OUTLAYER DETEKSI</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deteksi-outlier-dengan-knn"><strong>Langkah-Langkah Deteksi Outlier dengan KNN:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan-metode-knn-untuk-deteksi-outlier"><strong>Kelebihan Metode KNN untuk Deteksi Outlier:</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan-metode-knn-untuk-deteksi-outlier"><strong>Kekurangan Metode KNN untuk Deteksi Outlier:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-di-bawah-adalah">PENJELASAN KODE DI BAWAH ADALAH :</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-ini-digunakan-untuk"><strong>Kode ini digunakan untuk:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-ini"><strong>Penjelasan kode ini:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-outlayer-deteksi"><strong>PENJELASAN OUTLAYER DETEKSI</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deteksi-outlier-dengan-knn"><strong>Langkah-Langkah Deteksi Outlier dengan KNN:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan-metode-knn-untuk-deteksi-outlier"><strong>Kelebihan Metode KNN untuk Deteksi Outlier:</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan-metode-knn-untuk-deteksi-outlier"><strong>Kekurangan Metode KNN untuk Deteksi Outlier:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-di-bawah-adalah">PENJELASAN KODE DI BAWAH ADALAH :</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-ini-digunakan-untuk"><strong>Kode ini digunakan untuk:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-kode-ini"><strong>Penjelasan kode ini:</strong></a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
