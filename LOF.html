@@ -522,34 +522,61 @@ d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}
 </section>
 <section id="langkah-3-hitung-reachability-distance">
 <h2><strong>Langkah 3: Hitung Reachability Distance</strong><a class="headerlink" href="#langkah-3-hitung-reachability-distance" title="Link to this heading">#</a></h2>
-<p>Reachability distance adalah jarak yang diukur dari titik yang dipilih (titik 5) ke tetangganya, tetapi dengan mempertimbangkan jarak ke tetangga terdekatnya. Kita akan menghitungnya dengan menggunakan <strong>reachability distance</strong> formula:</p>
+<p>Pada langkah ini, kita menggunakan rumus untuk menghitung <strong>reachability distance</strong> antara titik yang dipilih (dalam hal ini, Titik 5) dan tetangganya. Formula untuk reachability distance adalah sebagai berikut:</p>
 <p><span class="math notranslate nohighlight">\(
 \text{Reachability Distance}(A, B) = \max(d(A, B), d_{k-nearest}(B))
 \)</span></p>
-<p>Untuk titik 5 dan k = 3, kita akan hitung jarak keterjangkauan dari Titik 5 ke setiap tetangga terdekatnya, dengan <strong>d_{k-nearest}</strong> adalah jarak ke tetangga k-terdekat.</p>
-<p>Misalkan:</p>
+<p>di mana:</p>
 <ul class="simple">
-<li><p>Titik 5 ke Titik 8: ( d = 0.71 )</p></li>
-<li><p>Titik 5 ke Titik 9: ( d = 1.41 )</p></li>
-<li><p>Titik 5 ke Titik 4: ( d = 2.12 )</p></li>
+<li><p><span class="math notranslate nohighlight">\( d(A, B) \)</span> adalah jarak antara titik <span class="math notranslate nohighlight">\( A \)</span> dan <span class="math notranslate nohighlight">\( B \)</span> (jarak Euclidean atau jarak lainnya yang relevan).</p></li>
+<li><p><span class="math notranslate nohighlight">\( d_{k-nearest}(B) \)</span> adalah jarak ke tetangga k-terdekat untuk titik <span class="math notranslate nohighlight">\( B \)</span>.</p></li>
 </ul>
-<p>Tentukan <strong>reachability distance</strong> masing-masing:</p>
+<p>Misalnya, untuk Titik 5, kita diberikan tiga tetangga terdekat, yaitu Titik 8, Titik 9, dan Titik 4, dengan jarak yang diketahui sebagai berikut:</p>
 <ul class="simple">
-<li><p>Reachability Distance (Titik 5 ke Titik 8): (\max(0.71, 0.71) = 0.71)</p></li>
-<li><p>Reachability Distance (Titik 5 ke Titik 9): (\max(1.41, 1.41) = 1.41)</p></li>
-<li><p>Reachability Distance (Titik 5 ke Titik 4): (\max(2.12, 2.12) = 2.12)</p></li>
+<li><p>Titik 5 ke Titik 8: <span class="math notranslate nohighlight">\( d = 0.71 \)</span></p></li>
+<li><p>Titik 5 ke Titik 9: <span class="math notranslate nohighlight">\( d = 1.41 \)</span></p></li>
+<li><p>Titik 5 ke Titik 4: <span class="math notranslate nohighlight">\( d = 2.12 \)</span></p></li>
+</ul>
+<p>Dalam menghitung <strong>reachability distance</strong>, kita perlu menghitung nilai <span class="math notranslate nohighlight">\( d_{k-nearest}(B) \)</span>, yaitu jarak ke tetangga k-terdekat untuk setiap titik (B). Untuk k = 3, ini berarti kita perlu memperhitungkan jarak ke 3 tetangga terdekat Titik 5. Oleh karena Titik 5 hanya memiliki tiga tetangga yang sudah diketahui, maka <span class="math notranslate nohighlight">\( d_{k-nearest} \)</span> untuk setiap tetangga adalah jarak ke tetangga tersebut.</p>
+<p>Sehingga, untuk masing-masing titik:</p>
+<ul class="simple">
+<li><p><strong>Reachability Distance (Titik 5 ke Titik 8)</strong>:
+<span class="math notranslate nohighlight">\(
+\text{Reachability Distance} = \max(0.71, 0.71) = 0.71
+\)</span></p></li>
+<li><p><strong>Reachability Distance (Titik 5 ke Titik 9)</strong>:
+<span class="math notranslate nohighlight">\(
+\text{Reachability Distance} = \max(1.41, 1.41) = 1.41
+\)</span></p></li>
+<li><p><strong>Reachability Distance (Titik 5 ke Titik 4)</strong>:
+<span class="math notranslate nohighlight">\(
+\text{Reachability Distance} = \max(2.12, 2.12) = 2.12
+\)</span></p></li>
 </ul>
 </section>
 <section id="langkah-4-hitung-local-reachability-density-lrd">
 <h2><strong>Langkah 4: Hitung Local Reachability Density (LRD)</strong><a class="headerlink" href="#langkah-4-hitung-local-reachability-density-lrd" title="Link to this heading">#</a></h2>
-<p>Untuk menghitung <strong>Local Reachability Density (LRD)</strong>, kita gunakan rumus:</p>
+<p>Setelah kita menghitung reachability distance, kita dapat melanjutkan untuk menghitung <strong>Local Reachability Density (LRD)</strong>. Formula untuk menghitung LRD adalah:</p>
 <p><span class="math notranslate nohighlight">\(
 LRD(A) = \frac{1}{\frac{1}{k} \sum \text{Reachability Distance of neighbors}}
 \)</span></p>
-<p>Untuk <strong>Titik 5</strong>, kita hitung LRD dengan reachability distance yang sudah dihitung:</p>
-<p><span class="math notranslate nohighlight">\(
-LRD(5) = \frac{1}{\frac{1}{3} \times (0.71 + 1.41 + 2.12)} = \frac{1}{\frac{1}{3} \times 4.24} \approx \frac{1}{1.413} \approx 0.71
-\)</span></p>
+<p>Untuk <strong>Titik 5</strong>, kita sudah menghitung reachability distance ke tiga tetangganya, yaitu Titik 8, Titik 9, dan Titik 4. Langkah-langkahnya sebagai berikut:</p>
+<ol class="arabic simple">
+<li><p><strong>Jumblahkan nilai reachability distance</strong> dari ketiga tetangga Titik 5:
+<span class="math notranslate nohighlight">\(
+0.71 + 1.41 + 2.12 = 4.24
+\)</span></p></li>
+<li><p><strong>Bagi jumlah reachability distance dengan k (dalam hal ini k = 3)</strong>:
+<span class="math notranslate nohighlight">\(
+\frac{1}{3} \times 4.24 = 1.413
+\)</span></p></li>
+<li><p><strong>Hitung nilai LRD</strong> dengan membalikkan hasil yang telah dihitung:
+<span class="math notranslate nohighlight">\(
+LRD(5) = \frac{1}{1.413} \approx 0.71
+\)</span></p></li>
+</ol>
+<p>Jadi, <strong>Local Reachability Density (LRD) untuk Titik 5</strong> adalah sekitar <strong>0.71</strong>.</p>
+<p>Semoga penjelasan langkah demi langkah ini bisa membantu memahami bagaimana proses perhitungannya dilakukan!</p>
 </section>
 <section id="langkah-5-hitung-local-outlier-factor-lof">
 <h2><strong>Langkah 5: Hitung Local Outlier Factor (LOF)</strong><a class="headerlink" href="#langkah-5-hitung-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
