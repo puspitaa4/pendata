@@ -371,6 +371,17 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-lof"><strong>pengertian LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-dalam-lof"><strong>Tahapan dalam LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghitung-manual-lof"><strong>Contoh Menghitung manual Lof</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-10-baris"><strong>Dataset (10 baris)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-hitung-jarak-euclidean-antar-titik"><strong>Langkah 1: Hitung Jarak Euclidean antar Titik</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jarak-euclidean-dari-titik-5-ke-titik-lainnya">Jarak Euclidean dari Titik 5 ke Titik Lainnya:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-tentukan-k-tetangga-terdekat-k-3"><strong>Langkah 2: Tentukan k-Tetangga Terdekat (k=3)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-hitung-reachability-distance"><strong>Langkah 3: Hitung Reachability Distance</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-hitung-local-reachability-density-lrd"><strong>Langkah 4: Hitung Local Reachability Density (LRD)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-hitung-local-outlier-factor-lof"><strong>Langkah 5: Hitung Local Outlier Factor (LOF)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-interpretasi"><strong>Langkah 6: Interpretasi</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-dalam-dataset"><strong>Outlier dalam Dataset</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh"><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong></a></li>
 </ul>
             </nav>
@@ -424,10 +435,9 @@ Jarak keterjangkauan (reachability distance) digunakan untuk menghindari nilai y
 </section>
 <section id="contoh-menghitung-manual-lof">
 <h2><strong>Contoh Menghitung manual Lof</strong><a class="headerlink" href="#contoh-menghitung-manual-lof" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Dataset</strong>:<br />
-Misalkan data berikut:</p></li>
-</ol>
+</section>
+<section id="dataset-10-baris">
+<h2><strong>Dataset (10 baris)</strong><a class="headerlink" href="#dataset-10-baris" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>ID</p></th>
@@ -456,39 +466,119 @@ Misalkan data berikut:</p></li>
 <td><p>8.0</p></td>
 <td><p>9.0</p></td>
 </tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2.5</p></td>
+<td><p>3.5</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>4.0</p></td>
+<td><p>5.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>7.5</p></td>
+<td><p>8.5</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>9.0</p></td>
+<td><p>10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>10.0</p></td>
+<td><p>11.0</p></td>
+</tr>
 </tbody>
 </table>
 </div>
-<p>Kita akan hitung LOF untuk <strong>titik 3</strong> (5.0, 6.0).</p>
-<ol class="arabic simple" start="2">
-<li><p><strong>Hitung Jarak Euclidean</strong>:<br />
-Jarak antara titik 3 dan titik lainnya:</p>
+<p>Kita akan hitung <strong>LOF</strong> untuk <strong>titik 5 (8.0, 9.0)</strong>, yang tampaknya mungkin outlier karena berada jauh di sisi kanan distribusi data.</p>
+</section>
+<section id="langkah-1-hitung-jarak-euclidean-antar-titik">
+<h2><strong>Langkah 1: Hitung Jarak Euclidean antar Titik</strong><a class="headerlink" href="#langkah-1-hitung-jarak-euclidean-antar-titik" title="Link to this heading">#</a></h2>
+<p>Untuk menghitung jarak antar titik, kita gunakan rumus <strong>Euclidean Distance</strong>:</p>
+<p><span class="math notranslate nohighlight">\(
+d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}
+\)</span></p>
+<p>Misalkan kita akan menghitung jarak Euclidean antara <strong>Titik 5 (8.0, 9.0)</strong> dengan titik-titik lainnya.</p>
+<section id="jarak-euclidean-dari-titik-5-ke-titik-lainnya">
+<h3>Jarak Euclidean dari Titik 5 ke Titik Lainnya:<a class="headerlink" href="#jarak-euclidean-dari-titik-5-ke-titik-lainnya" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Titik 3 ke Titik 2: 2.12</p></li>
-<li><p>Titik 3 ke Titik 4: 2.12</p></li>
+<li><p>Titik 5 ke Titik 4:<br />
+<span class="math notranslate nohighlight">\( d = \sqrt{(8.0 - 6.5)^2 + (9.0 - 7.5)^2} = \sqrt{1.5^2 + 1.5^2} = \sqrt{4.5} \approx 2.12 \)</span></p></li>
+<li><p>Titik 5 ke Titik 6:<br />
+<span class="math notranslate nohighlight">\( d = \sqrt{(8.0 - 2.5)^2 + (9.0 - 3.5)^2} = \sqrt{5.5^2 + 5.5^2} = \sqrt{60.5} \approx 7.78 \)</span></p></li>
+<li><p>Titik 5 ke Titik 7:<br />
+<span class="math notranslate nohighlight">\( d = \sqrt{(8.0 - 4.0)^2 + (9.0 - 5.0)^2} = \sqrt{4.0^2 + 4.0^2} = \sqrt{32} \approx 5.66 \)</span></p></li>
+<li><p>Titik 5 ke Titik 8:<br />
+<span class="math notranslate nohighlight">\( d = \sqrt{(8.0 - 7.5)^2 + (9.0 - 8.5)^2} = \sqrt{0.5^2 + 0.5^2} = \sqrt{0.5} \approx 0.71 \)</span></p></li>
+<li><p>Titik 5 ke Titik 9:<br />
+<span class="math notranslate nohighlight">\( d = \sqrt{(8.0 - 9.0)^2 + (9.0 - 10.0)^2} = \sqrt{1.0^2 + 1.0^2} = \sqrt{2} \approx 1.41 \)</span></p></li>
+<li><p>Titik 5 ke Titik 10:<br />
+<span class="math notranslate nohighlight">\( d = \sqrt{(8.0 - 10.0)^2 + (9.0 - 11.0)^2} = \sqrt{2.0^2 + 2.0^2} = \sqrt{8} \approx 2.83 \)</span></p></li>
 </ul>
-</li>
-<li><p><strong>Tentukan k-Tetangga Terdekat</strong> (k=2):<br />
-Titik 3 memiliki dua tetangga terdekat: titik 2 dan titik 4.</p></li>
-<li><p><strong>Hitung Reachability Distance</strong>:<br />
-Reachability distance antara titik 3 dan tetangga:</p>
+</section>
+</section>
+<section id="langkah-2-tentukan-k-tetangga-terdekat-k-3">
+<h2><strong>Langkah 2: Tentukan k-Tetangga Terdekat (k=3)</strong><a class="headerlink" href="#langkah-2-tentukan-k-tetangga-terdekat-k-3" title="Link to this heading">#</a></h2>
+<p>Untuk <strong>Titik 5</strong>, k-Tetangga Terdekat (k=3) adalah titik 8, 9, dan 4 (berdasarkan jarak terpendek).</p>
+</section>
+<section id="langkah-3-hitung-reachability-distance">
+<h2><strong>Langkah 3: Hitung Reachability Distance</strong><a class="headerlink" href="#langkah-3-hitung-reachability-distance" title="Link to this heading">#</a></h2>
+<p>Reachability distance adalah jarak yang diukur dari titik yang dipilih (titik 5) ke tetangganya, tetapi dengan mempertimbangkan jarak ke tetangga terdekatnya. Kita akan menghitungnya dengan menggunakan <strong>reachability distance</strong> formula:</p>
+<p><span class="math notranslate nohighlight">\(
+\text{Reachability Distance}(A, B) = \max(d(A, B), d_{k-nearest}(B))
+\)</span></p>
+<p>Untuk titik 5 dan k = 3, kita akan hitung jarak keterjangkauan dari Titik 5 ke setiap tetangga terdekatnya, dengan <strong>d_{k-nearest}</strong> adalah jarak ke tetangga k-terdekat.</p>
+<p>Misalkan:</p>
 <ul class="simple">
-<li><p>Titik 3 ke Titik 2: 2.12</p></li>
-<li><p>Titik 3 ke Titik 4: 2.12</p></li>
+<li><p>Titik 5 ke Titik 8: ( d = 0.71 )</p></li>
+<li><p>Titik 5 ke Titik 9: ( d = 1.41 )</p></li>
+<li><p>Titik 5 ke Titik 4: ( d = 2.12 )</p></li>
 </ul>
-</li>
-<li><p><strong>Hitung Local Reachability Density (LRD)</strong>:<br />
-<span class="math notranslate nohighlight">\(
-\text{LRD}(3) = \frac{1}{\frac{1}{2} \times (4.24 + 2.12)} = 0.47
-\)</span></p></li>
-<li><p><strong>Hitung LOF</strong>:<br />
-<span class="math notranslate nohighlight">\(
-\text{LOF}(3) = \frac{0.47}{0.47} + \frac{0.47}{0.47} = 2
-\)</span></p></li>
-<li><p><strong>Interpretasi</strong>:<br />
-Karena <strong>LOF = 2</strong> (lebih besar dari 1), titik 3 dianggap <strong>outlier</strong>.</p></li>
-</ol>
-<p>LOF mengukur seberapa terisolasi titik dibandingkan tetangganya. Titik dengan LOF lebih besar dari 1 dianggap outlier.</p>
+<p>Tentukan <strong>reachability distance</strong> masing-masing:</p>
+<ul class="simple">
+<li><p>Reachability Distance (Titik 5 ke Titik 8): (\max(0.71, 0.71) = 0.71)</p></li>
+<li><p>Reachability Distance (Titik 5 ke Titik 9): (\max(1.41, 1.41) = 1.41)</p></li>
+<li><p>Reachability Distance (Titik 5 ke Titik 4): (\max(2.12, 2.12) = 2.12)</p></li>
+</ul>
+</section>
+<section id="langkah-4-hitung-local-reachability-density-lrd">
+<h2><strong>Langkah 4: Hitung Local Reachability Density (LRD)</strong><a class="headerlink" href="#langkah-4-hitung-local-reachability-density-lrd" title="Link to this heading">#</a></h2>
+<p>Untuk menghitung <strong>Local Reachability Density (LRD)</strong>, kita gunakan rumus:</p>
+<p><span class="math notranslate nohighlight">\(
+LRD(A) = \frac{1}{\frac{1}{k} \sum \text{Reachability Distance of neighbors}}
+\)</span></p>
+<p>Untuk <strong>Titik 5</strong>, kita hitung LRD dengan reachability distance yang sudah dihitung:</p>
+<p><span class="math notranslate nohighlight">\(
+LRD(5) = \frac{1}{\frac{1}{3} \times (0.71 + 1.41 + 2.12)} = \frac{1}{\frac{1}{3} \times 4.24} \approx \frac{1}{1.413} \approx 0.71
+\)</span></p>
+</section>
+<section id="langkah-5-hitung-local-outlier-factor-lof">
+<h2><strong>Langkah 5: Hitung Local Outlier Factor (LOF)</strong><a class="headerlink" href="#langkah-5-hitung-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
+<p>LOF dihitung dengan membandingkan LRD titik dengan LRD dari tetangganya.</p>
+<p><span class="math notranslate nohighlight">\(
+LOF(5) = \frac{LRD(5)}{1/k \sum LRD(neighbors)}
+\)</span></p>
+<p>Untuk titik 5, LRD tetangganya adalah LRD(8), LRD(9), dan LRD(4). Misalkan nilai LRD tetangga adalah sebagai berikut:</p>
+<ul class="simple">
+<li><p>LRD(8) = 1.50</p></li>
+<li><p>LRD(9) = 0.80</p></li>
+<li><p>LRD(4) = 1.00</p></li>
+</ul>
+<p>Maka LOF untuk titik 5 adalah:</p>
+<p><span class="math notranslate nohighlight">\(
+LOF(5) = \frac{0.71}{\frac{1}{3} \times (1.50 + 0.80 + 1.00)} = \frac{0.71}{1.43} \approx 0.50
+\)</span></p>
+</section>
+<section id="langkah-6-interpretasi">
+<h2><strong>Langkah 6: Interpretasi</strong><a class="headerlink" href="#langkah-6-interpretasi" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>LOF &lt; 1 menunjukkan bahwa titik tersebut <strong>tidak outlier</strong>.</p></li>
+<li><p>LOF &gt; 1 menunjukkan bahwa titik tersebut <strong>adalah outlier</strong>.</p></li>
+</ul>
+<p>Karena LOF(5) = 0.50, yang <strong>kurang dari 1</strong>, maka titik <strong>5 (8.0, 9.0)</strong> <strong>bukan outlier</strong>.</p>
+</section>
+<section id="outlier-dalam-dataset">
+<h2><strong>Outlier dalam Dataset</strong><a class="headerlink" href="#outlier-dalam-dataset" title="Link to this heading">#</a></h2>
+<p>Dari perhitungan di atas, dapat disimpulkan bahwa <strong>titik 5 (8.0, 9.0)</strong> tidak dianggap outlier. Untuk dataset ini, kita perlu memeriksa titik lainnya (misalnya, titik 6) menggunakan metode yang sama untuk mengidentifikasi apakah mereka adalah outlier atau tidak.</p>
 </section>
 <section id="implementasi-pakai-sklearn-untuk-data-contoh">
 <h2><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong><a class="headerlink" href="#implementasi-pakai-sklearn-untuk-data-contoh" title="Link to this heading">#</a></h2>
@@ -498,17 +588,17 @@ Karena <strong>LOF = 2</strong> (lebih besar dari 1), titik 3 dianggap <strong>o
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
 
-<span class="c1"># Dataset contoh</span>
+<span class="c1"># Dataset contoh (10 baris)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Feature1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">],</span>
-    <span class="s1">&#39;Feature2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">]</span>
+    <span class="s1">&#39;Feature1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span>
+    <span class="s1">&#39;Feature2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="c1"># Membuat DataFrame</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="c1"># Inisialisasi model LOF dengan k=2 (2 tetangga terdekat)</span>
-<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Inisialisasi model LOF dengan k=3 (3 tetangga terdekat)</span>
+<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># Fit model LOF dan prediksi label (1 untuk normal, -1 untuk outlier)</span>
 <span class="n">lof_labels</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -537,6 +627,11 @@ Karena <strong>LOF = 2</strong> (lebih besar dari 1), titik 3 dianggap <strong>o
 2       5.0       6.0          1
 3       6.5       7.5          1
 4       8.0       9.0          1
+5       2.5       3.5          1
+6       4.0       5.0          1
+7       7.5       8.5          1
+8       9.0      10.0          1
+9      10.0      11.0          1
 
 Jumlah outlier: 0
 
@@ -897,6 +992,17 @@ Data Outlier:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-lof"><strong>pengertian LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-dalam-lof"><strong>Tahapan dalam LOF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghitung-manual-lof"><strong>Contoh Menghitung manual Lof</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-10-baris"><strong>Dataset (10 baris)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-hitung-jarak-euclidean-antar-titik"><strong>Langkah 1: Hitung Jarak Euclidean antar Titik</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jarak-euclidean-dari-titik-5-ke-titik-lainnya">Jarak Euclidean dari Titik 5 ke Titik Lainnya:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-tentukan-k-tetangga-terdekat-k-3"><strong>Langkah 2: Tentukan k-Tetangga Terdekat (k=3)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-hitung-reachability-distance"><strong>Langkah 3: Hitung Reachability Distance</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-hitung-local-reachability-density-lrd"><strong>Langkah 4: Hitung Local Reachability Density (LRD)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-hitung-local-outlier-factor-lof"><strong>Langkah 5: Hitung Local Outlier Factor (LOF)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-interpretasi"><strong>Langkah 6: Interpretasi</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-dalam-dataset"><strong>Outlier dalam Dataset</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh"><strong>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</strong></a></li>
 </ul>
   </nav></div>
