@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding" href="knn.html" />
+    <link rel="next" title="Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding" href="knn_dina.html" />
     <link rel="prev" title="Tugas 1" href="Tugas_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,7 +173,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas_1.html">Tugas 1</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Tugas 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="knn.html"><strong>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="knn_dina.html"><strong>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="LOF.html"><strong>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</strong></a></li>
 </ul>
 </details></li>
@@ -583,161 +583,160 @@ Grafik 2: petal_length vs. petal_width.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           class  petal_length  petal_width  sepal_length  sepal_width  distance  outlier
-  1     Iris-setosa           1.4          0.2           5.1          3.5  5.424942    False
-  2     Iris-setosa          14.0          2.0          40.9         30.0 46.407542     True
-  3     Iris-setosa           1.3          0.2           4.7          3.2  5.430470    False
-  4     Iris-setosa           1.5          0.2           4.6          3.1  5.273519    False
-  5     Iris-setosa           1.4          0.2           5.0          3.6  5.485435     True
-  6     Iris-setosa           1.7          0.4           5.4          3.9  5.288667    False
-  7     Iris-setosa           1.4          0.3           4.6          3.4  5.412947    False
-  8     Iris-setosa           1.5          0.2           5.0          3.4  5.325411    False
-  9     Iris-setosa           1.4          0.2           4.4          2.9  5.316014    False
- 10     Iris-setosa           1.5          0.1           4.9          3.1  5.271622    False
- 11     Iris-setosa           1.5          0.2           5.4          3.7  5.423099    False
- 12     Iris-setosa           1.6          0.2           4.8          3.4  5.292447    False
- 13     Iris-setosa           1.4          0.1           4.8          3.0  5.319774    False
- 14     Iris-setosa           1.1          0.1           4.3          3.0  5.644466     True
- 15     Iris-setosa           1.2          0.2           5.8          4.0  5.762812     True
- 16     Iris-setosa           1.5          0.4           5.7          4.4  5.689464     True
- 17     Iris-setosa           1.3          0.4           5.4          3.9  5.554278     True
- 18     Iris-setosa           1.4          0.3           5.1          3.5  5.370289    False
- 19     Iris-setosa           1.7          0.3           5.7          3.8  5.274467    False
- 20     Iris-setosa           1.5          0.3           5.1          3.8  5.449771    False
- 21     Iris-setosa           1.7          0.2           5.4          3.4  5.145872    False
- 22     Iris-setosa           1.5          0.4           5.1          3.7  5.346027    False
- 23     Iris-setosa           1.0          0.2           4.6          3.6  5.831809     True
- 24     Iris-setosa           1.7          0.5           5.1          3.3  4.962862    False
- 25     Iris-setosa           1.9          0.2           4.8          3.4  5.099020    False
- 26     Iris-setosa           1.6          0.2           5.0          3.0  5.088222    False
- 27     Iris-setosa           1.6          0.4           5.0          3.4  5.146844    False
- 28     Iris-setosa           1.5          0.2           5.2          3.5  5.345091    False
- 29     Iris-setosa           1.4          0.2           5.2          3.4  5.367495    False
- 30     Iris-setosa           1.6          0.2           4.7          3.2  5.224940    False
- 31     Iris-setosa           1.6          0.2           4.8          3.1  5.163332    False
- 32     Iris-setosa           1.5          0.4           5.4          3.4  5.169139    False
- 33     Iris-setosa           1.5          0.1           5.2          4.1  5.704384     True
- 34     Iris-setosa           1.4          0.2           5.5          4.2  5.746303     True
- 35     Iris-setosa           1.5          0.1           4.9          3.1  5.271622    False
- 36     Iris-setosa           1.2          0.2           5.0          3.2  5.448853    False
- 37     Iris-setosa           1.3          0.2           5.5          3.5  5.457105    False
- 38     Iris-setosa           1.5          0.1           4.9          3.1  5.271622    False
- 39     Iris-setosa           1.3          0.2           4.4          3.0  5.422177    False
- 40     Iris-setosa           1.5          0.2           5.1          3.4  5.311309    False
- 41     Iris-setosa           1.3          0.3           5.0          3.5  5.453439    False
- 42     Iris-setosa           1.3          0.3           4.5          2.3  5.121523    False
- 43     Iris-setosa           1.3          0.2           4.4          3.2  5.499091     True
- 44     Iris-setosa           1.6          0.6           5.0          3.5  5.089204    False
- 45     Iris-setosa           1.9          0.4           5.1          3.8  5.139066    False
- 46     Iris-setosa           1.4          0.3           4.8          3.0  5.205766    False
- 47     Iris-setosa           1.6          0.2           5.1          3.8  5.438750    False
- 48     Iris-setosa           1.4          0.2           4.6          3.2  5.382379    False
- 49     Iris-setosa           1.5          0.2           5.3          3.7  5.431390    False
- 50     Iris-setosa           1.4          0.2           5.0          3.3  5.349766    False
- 51 Iris-versicolor           4.7          1.4           7.0          3.2  3.111270    False
- 52 Iris-versicolor           4.5          1.5           6.4          3.2  2.906888    False
- 53 Iris-versicolor           4.9          1.5           6.9          3.1  2.924038    False
- 54 Iris-versicolor           4.0          1.3           5.5          2.3  2.569047    False
- 55 Iris-versicolor           4.6          1.5           6.5          2.8  2.621068    False
- 56 Iris-versicolor           4.5          1.3           5.7          2.8  2.687006    False
- 57 Iris-versicolor           4.7          1.6           6.3          3.3  2.874022    False
- 58 Iris-versicolor           3.3          1.0           4.9          2.4  3.293934    False
- 59 Iris-versicolor           4.6          1.3           6.6          2.9  2.847806    False
- 60 Iris-versicolor           3.9          1.4           5.2          2.7  2.816026    False
- 61 Iris-versicolor           3.5          1.0           5.0          2.0  3.006659    False
- 62 Iris-versicolor           4.2          1.5           5.9          3.0  2.776689    False
- 63 Iris-versicolor           4.0          1.0           6.0          2.2  2.744085    False
- 64 Iris-versicolor           4.7          1.4           6.1          2.9  2.664583    False
- 65 Iris-versicolor           3.6          1.3           5.6          2.9  3.083829    False
- 66 Iris-versicolor           4.4          1.4           6.7          3.1  2.991655    False
- 67 Iris-versicolor           4.5          1.5           5.6          3.0  2.700000    False
- 68 Iris-versicolor           4.1          1.0           5.8          2.7  2.954657    False
- 69 Iris-versicolor           4.5          1.5           6.2          2.2  2.202272    False
- 70 Iris-versicolor           3.9          1.1           5.6          2.5  2.853069    False
- 71 Iris-versicolor           4.8          1.8           5.9          3.2  2.626785    False
- 72 Iris-versicolor           4.0          1.3           6.1          2.8  2.854820    False
- 73 Iris-versicolor           4.9          1.5           6.3          2.5  2.330236    False
- 74 Iris-versicolor           4.7          1.2           6.1          2.8  2.736786    False
- 75 Iris-versicolor           4.3          1.3           6.4          2.9  2.867054    False
- 76 Iris-versicolor           4.4          1.4           6.6          3.0  2.893095    False
- 77 Iris-versicolor           4.8          1.4           6.8          2.8  2.751363    False
- 78 Iris-versicolor           5.0          1.7           6.7          3.0  2.658947    False
- 79 Iris-versicolor           4.5          1.5           6.0          2.9  2.626785    False
- 80 Iris-versicolor           3.5          1.0           5.7          2.6  3.157531    False
- 81 Iris-versicolor           3.8          1.1           5.5          2.4  2.854820    False
- 82 Iris-versicolor           3.7          1.0           5.5          2.4  2.974895    False
- 83 Iris-versicolor           3.9          1.2           5.8          2.7  2.886174    False
- 84 Iris-versicolor           5.1          1.6           6.0          2.7  2.343075    False
- 85 Iris-versicolor           4.5          1.5           5.4          3.0  2.722132    False
- 86 Iris-versicolor           4.5          1.6           6.0          3.4  2.952965    False
- 87 Iris-versicolor           4.7          1.5           6.7          3.1  2.875761    False
- 88 Iris-versicolor           4.4          1.3           6.3          2.3  2.457641    False
- 89 Iris-versicolor           4.1          1.3           5.6          3.0  2.941088    False
- 90 Iris-versicolor           4.0          1.3           5.5          2.5  2.675818    False
- 91 Iris-versicolor           4.4          1.2           5.5          2.6  2.672078    False
- 92 Iris-versicolor           4.6          1.4           6.1          3.0  2.753180    False
- 93 Iris-versicolor           4.0          1.2           5.8          2.6  2.787472    False
- 94 Iris-versicolor           3.3          1.0           5.0          2.3  3.226453    False
- 95 Iris-versicolor           4.2          1.3           5.6          2.7  2.711088    False
- 96 Iris-versicolor           4.2          1.2           5.7          3.0  2.969848    False
- 97 Iris-versicolor           4.2          1.3           5.7          2.9  2.835489    False
- 98 Iris-versicolor           4.3          1.3           6.2          2.9  2.831960    False
- 99 Iris-versicolor           3.0          1.1           5.1          2.5  3.400000    False
-100 Iris-versicolor           4.1          1.3           5.7          2.8  2.803569    False
-101  Iris-virginica           6.0          2.5           6.3          3.3  2.615339    False
-102  Iris-virginica           5.1          1.9           5.8          2.7  2.140093    False
-103  Iris-virginica           5.9          2.1           7.1          3.0  2.745906    False
-104  Iris-virginica           5.6          1.8           6.3          2.9  2.463737    False
-105  Iris-virginica           5.8          2.2           6.5          3.0  2.445404    False
-106  Iris-virginica           6.6          2.1           7.6          3.0  3.271085    False
-107  Iris-virginica           4.5          1.7           4.9          2.5  2.381176    False
-108  Iris-virginica           6.3          1.8           7.3          2.9  3.043025    False
-109  Iris-virginica           5.8          1.8           6.7          2.5  2.347339    False
-110  Iris-virginica           6.1          2.5           7.2          3.6  3.195309    False
-111  Iris-virginica           5.1          2.0           6.5          3.2  2.601922    False
-112  Iris-virginica           5.3          1.9           6.4          2.7  2.231591    False
-113  Iris-virginica           5.5          2.1           6.8          3.0  2.523886    False
-114  Iris-virginica           5.0          2.0           5.7          2.5  1.926136    False
-115  Iris-virginica           5.1          2.4           5.8          2.8  1.969772    False
-116  Iris-virginica           5.3          2.3           6.4          3.2  2.459675    False
-117  Iris-virginica           5.5          1.8           6.5          3.0  2.570992    False
-118  Iris-virginica           6.7          2.2           7.7          3.8  3.874274    False
-119  Iris-virginica           6.9          2.3           7.7          2.6  3.196873    False
-120  Iris-virginica           5.0          1.5           6.0          2.2  2.092845    False
-121  Iris-virginica           5.7          2.3           6.9          3.2  2.687006    False
-122  Iris-virginica           4.9          2.0           5.6          2.8  2.181742    False
-123  Iris-virginica           6.7          2.0           7.7          2.8  3.293934    False
-124  Iris-virginica           4.9          1.8           6.3          2.7  2.267157    False
-125  Iris-virginica           5.7          2.1           6.7          3.3  2.769476    False
-126  Iris-virginica           6.0          1.8           7.2          3.2  3.093542    False
-127  Iris-virginica           4.8          1.8           6.2          2.8  2.334524    False
-128  Iris-virginica           4.9          1.8           6.1          3.0  2.467793    False
-129  Iris-virginica           5.6          2.1           6.4          2.8  2.249444    False
-130  Iris-virginica           5.8          1.6           7.2          3.0  3.001666    False
-131  Iris-virginica           6.1          1.9           7.4          2.8  2.913760    False
-132  Iris-virginica           6.4          2.0           7.9          3.8  3.921734    False
-133  Iris-virginica           5.6          2.2           6.4          2.8  2.202272    False
-134  Iris-virginica           5.1          1.5           6.3          2.8  2.525866    False
-135  Iris-virginica           5.6          1.4           6.1          2.6  2.477902    False
-136  Iris-virginica           6.1          2.3           7.7          3.0  3.069202    False
-137  Iris-virginica           5.6          2.4           6.3          3.4  2.626785    False
-138  Iris-virginica           5.5          1.8           6.4          3.1  2.624881    False
-139  Iris-virginica           4.8          1.8           6.0          3.0  2.467793    False
-140  Iris-virginica           5.4          2.1           6.9          3.1  2.630589    False
-141  Iris-virginica           5.6          2.4           6.7          3.1  2.471841    False
-142  Iris-virginica           5.1          2.3           6.9          3.1  2.535744    False
-143  Iris-virginica           5.1          1.9           5.8          2.7  2.140093    False
-144  Iris-virginica           5.9          2.3           6.8          3.2  2.700000    False
-145  Iris-virginica           5.7          2.5           6.7          3.3  2.636285    False
-146  Iris-virginica           5.2          2.3           6.7          3.0  2.372762    False
-147  Iris-virginica           5.0          1.9           6.3          2.5  2.049390    False
-148  Iris-virginica           5.2          2.0           6.5          3.0  2.437212    False
-149  Iris-virginica           5.4          2.3           6.2          3.4  2.611513    False
-150  Iris-virginica           5.1          1.8           5.9          3.0  2.443358    False
-151            ????           5.1          3.2           5.8          1.0  0.000000    False
+  1     Iris-setosa          14.0          2.0          50.1         30.5 52.812309    False
+  2     Iris-setosa          14.0          2.0          40.9         30.0 45.091573    False
+  3     Iris-setosa          13.0          2.0          40.7         30.2 44.870146    False
+  4     Iris-setosa          15.0          2.0          40.6         30.1 45.128151    False
+  5     Iris-setosa          14.0          2.0          50.0         30.6 52.780868    False
+  6     Iris-setosa           1.7          0.4           5.4          3.9  3.818377    False
+  7     Iris-setosa           1.4          0.3           4.6          3.4  4.217819    False
+  8     Iris-setosa           1.5          0.2           5.0          3.4  4.060788    False
+  9     Iris-setosa           1.4          0.2           4.4          2.9  4.302325    False
+ 10     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 11     Iris-setosa           1.5          0.2           5.4          3.7  4.032369    False
+ 12     Iris-setosa           1.6          0.2           4.8          3.4  4.022437    False
+ 13     Iris-setosa           1.4          0.1           4.8          3.0  4.217819    False
+ 14     Iris-setosa           1.1          0.1           4.3          3.0  4.631414    False
+ 15     Iris-setosa           1.2          0.2           5.8          4.0  4.333590    False
+ 16     Iris-setosa           1.5          0.4           5.7          4.4  4.113393    False
+ 17     Iris-setosa           1.3          0.4           5.4          3.9  4.178516    False
+ 18     Iris-setosa           1.4          0.3           5.1          3.5  4.102438    False
+ 19     Iris-setosa           1.7          0.3           5.7          3.8  3.806573    False
+ 20     Iris-setosa           1.5          0.3           5.1          3.8  4.060788    False
+ 21     Iris-setosa           1.7          0.2           5.4          3.4  3.811824    False
+ 22     Iris-setosa           1.5          0.4           5.1          3.7  4.006245    False
+ 23     Iris-setosa           1.0          0.2           4.6          3.6  4.628175    False
+ 24     Iris-setosa           1.7          0.5           5.1          3.3  3.738984    False
+ 25     Iris-setosa           1.9          0.2           4.8          3.4  3.764306    False
+ 26     Iris-setosa           1.6          0.2           5.0          3.0  3.952215    False
+ 27     Iris-setosa           1.6          0.4           5.0          3.4  3.896152    False
+ 28     Iris-setosa           1.5          0.2           5.2          3.5  4.032369    False
+ 29     Iris-setosa           1.4          0.2           5.2          3.4  4.110961    False
+ 30     Iris-setosa           1.6          0.2           4.7          3.2  4.036087    False
+ 31     Iris-setosa           1.6          0.2           4.8          3.1  4.003748    False
+ 32     Iris-setosa           1.5          0.4           5.4          3.4  3.915354    False
+ 33     Iris-setosa           1.5          0.1           5.2          4.1  4.189272    False
+ 34     Iris-setosa           1.4          0.2           5.5          4.2  4.224926    False
+ 35     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 36     Iris-setosa           1.2          0.2           5.0          3.2  4.315090    False
+ 37     Iris-setosa           1.3          0.2           5.5          3.5  4.172529    False
+ 38     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 39     Iris-setosa           1.3          0.2           4.4          3.0  4.387482    False
+ 40     Iris-setosa           1.5          0.2           5.1          3.4  4.039802    False
+ 41     Iris-setosa           1.3          0.3           5.0          3.5  4.213075    False
+ 42     Iris-setosa           1.3          0.3           4.5          2.3  4.374929    False
+ 43     Iris-setosa           1.3          0.2           4.4          3.2  4.392038    False
+ 44     Iris-setosa           1.6          0.6           5.0          3.5  3.840573    False
+ 45     Iris-setosa           1.9          0.4           5.1          3.8  3.671512    False
+ 46     Iris-setosa           1.4          0.3           4.8          3.0  4.141256    False
+ 47     Iris-setosa           1.6          0.2           5.1          3.8  4.011234    False
+ 48     Iris-setosa           1.4          0.2           4.6          3.2  4.240283    False
+ 49     Iris-setosa           1.5          0.2           5.3          3.7  4.045986    False
+ 50     Iris-setosa           1.4          0.2           5.0          3.3  4.141256    False
+ 51 Iris-versicolor          40.7         14.0          70.0         30.2 79.150805     True
+ 52 Iris-versicolor          40.5         15.0          60.4         30.2 71.676286     True
+ 53 Iris-versicolor          40.9         15.0          60.9         30.1 72.216965     True
+ 54 Iris-versicolor          40.0         13.0          50.5         20.3 60.265247     True
+ 55 Iris-versicolor          40.6         15.0          60.5         20.8 68.793096     True
+ 56 Iris-versicolor           4.5          1.3           5.7          2.8  0.830662    False
+ 57 Iris-versicolor           4.7          1.6           6.3          3.3  0.670820    False
+ 58 Iris-versicolor           3.3          1.0           4.9          2.4  2.289105    False
+ 59 Iris-versicolor           4.6          1.3           6.6          2.9  1.000000    False
+ 60 Iris-versicolor           3.9          1.4           5.2          2.7  1.476482    False
+ 61 Iris-versicolor           3.5          1.0           5.0          2.0  2.238303    False
+ 62 Iris-versicolor           4.2          1.5           5.9          3.0  0.948683    False
+ 63 Iris-versicolor           4.0          1.0           6.0          2.2  1.581139    False
+ 64 Iris-versicolor           4.7          1.4           6.1          2.9  0.608276    False
+ 65 Iris-versicolor           3.6          1.3           5.6          2.9  1.612452    False
+ 66 Iris-versicolor           4.4          1.4           6.7          3.1  1.140175    False
+ 67 Iris-versicolor           4.5          1.5           5.6          3.0  0.734847    False
+ 68 Iris-versicolor           4.1          1.0           5.8          2.7  1.319091    False
+ 69 Iris-versicolor           4.5          1.5           6.2          2.2  1.086278    False
+ 70 Iris-versicolor           3.9          1.1           5.6          2.5  1.506652    False
+ 71 Iris-versicolor           4.8          1.8           5.9          3.2  0.360555    False
+ 72 Iris-versicolor           4.0          1.3           6.1          2.8  1.240967    False
+ 73 Iris-versicolor           4.9          1.5           6.3          2.5  0.734847    False
+ 74 Iris-versicolor           4.7          1.2           6.1          2.8  0.774597    False
+ 75 Iris-versicolor           4.3          1.3           6.4          2.9  1.072381    False
+ 76 Iris-versicolor           4.4          1.4           6.6          3.0  1.067708    False
+ 77 Iris-versicolor           4.8          1.4           6.8          2.8  1.048809    False
+ 78 Iris-versicolor           5.0          1.7           6.7          3.0  0.812404    False
+ 79 Iris-versicolor           4.5          1.5           6.0          2.9  0.685565    False
+ 80 Iris-versicolor           3.5          1.0           5.7          2.6  1.843909    False
+ 81 Iris-versicolor           3.8          1.1           5.5          2.4  1.643168    False
+ 82 Iris-versicolor           3.7          1.0           5.5          2.4  1.766352    False
+ 83 Iris-versicolor           3.9          1.2           5.8          2.7  1.378405    False
+ 84 Iris-versicolor           5.1          1.6           6.0          2.7  0.374166    False
+ 85 Iris-versicolor           4.5          1.5           5.4          3.0  0.836660    False
+ 86 Iris-versicolor           4.5          1.6           6.0          3.4  0.754983    False
+ 87 Iris-versicolor           4.7          1.5           6.7          3.1  0.948683    False
+ 88 Iris-versicolor           4.4          1.3           6.3          2.3  1.178983    False
+ 89 Iris-versicolor           4.1          1.3           5.6          3.0  1.157584    False
+ 90 Iris-versicolor           4.0          1.3           5.5          2.5  1.367479    False
+ 91 Iris-versicolor           4.4          1.2           5.5          2.6  1.081665    False
+ 92 Iris-versicolor           4.6          1.4           6.1          3.0  0.670820    False
+ 93 Iris-versicolor           4.0          1.2           5.8          2.6  1.319091    False
+ 94 Iris-versicolor           3.3          1.0           5.0          2.3  2.275961    False
+ 95 Iris-versicolor           4.2          1.3           5.6          2.7  1.113553    False
+ 96 Iris-versicolor           4.2          1.2           5.7          3.0  1.100000    False
+ 97 Iris-versicolor           4.2          1.3           5.7          2.9  1.053565    False
+ 98 Iris-versicolor           4.3          1.3           6.2          2.9  0.994987    False
+ 99 Iris-versicolor           3.0          1.1           5.1          2.5  2.406242    False
+100 Iris-versicolor           4.1          1.3           5.7          2.8  1.153256    False
+101  Iris-virginica          60.0         20.5          60.3         30.3 84.073480     True
+102  Iris-virginica          50.1         19.0          50.8         20.7 68.191935     True
+103  Iris-virginica          50.9         20.1          70.1         30.0 85.341490     True
+104  Iris-virginica          50.6         18.0          60.3         20.9 74.916353     True
+105  Iris-virginica          50.8         20.2          60.5         30.0 78.340347     True
+106  Iris-virginica           6.6          2.1           7.6          3.0  2.286919    False
+107  Iris-virginica           4.5          1.7           4.9          2.5  1.272792    False
+108  Iris-virginica           6.3          1.8           7.3          2.9  1.846619    False
+109  Iris-virginica           5.8          1.8           6.7          2.5  1.174734    False
+110  Iris-virginica           6.1          2.5           7.2          3.6  1.881489    False
+111  Iris-virginica           5.1          2.0           6.5          3.2  0.663325    False
+112  Iris-virginica           5.3          1.9           6.4          2.7  0.624500    False
+113  Iris-virginica           5.5          2.1           6.8          3.0  1.029563    False
+114  Iris-virginica           5.0          2.0           5.7          2.5  0.583095    False
+115  Iris-virginica           5.1          2.4           5.8          2.8  0.640312    False
+116  Iris-virginica           5.3          2.3           6.4          3.2  0.761577    False
+117  Iris-virginica           5.5          1.8           6.5          3.0  0.721110    False
+118  Iris-virginica           6.7          2.2           7.7          3.8  2.569047    False
+119  Iris-virginica           6.9          2.3           7.7          2.6  2.624881    False
+120  Iris-virginica           5.0          1.5           6.0          2.2  0.866025    False
+121  Iris-virginica           5.7          2.3           6.9          3.2  1.284523    False
+122  Iris-virginica           4.9          2.0           5.6          2.8  0.458258    False
+123  Iris-virginica           6.7          2.0           7.7          2.8  2.424871    False
+124  Iris-virginica           4.9          1.8           6.3          2.7  0.538516    False
+125  Iris-virginica           5.7          2.1           6.7          3.3  1.086278    False
+126  Iris-virginica           6.0          1.8           7.2          3.2  1.593738    False
+127  Iris-virginica           4.8          1.8           6.2          2.8  0.469042    False
+128  Iris-virginica           4.9          1.8           6.1          3.0  0.282843    False
+129  Iris-virginica           5.6          2.1           6.4          2.8  0.793725    False
+130  Iris-virginica           5.8          1.6           7.2          3.0  1.489966    False
+131  Iris-virginica           6.1          1.9           7.4          2.8  1.816590    False
+132  Iris-virginica           6.4          2.0           7.9          3.8  2.523886    False
+133  Iris-virginica           5.6          2.2           6.4          2.8  0.836660    False
+134  Iris-virginica           5.1          1.5           6.3          2.8  0.538516    False
+135  Iris-virginica           5.6          1.4           6.1          2.6  0.781025    False
+136  Iris-virginica           6.1          2.3           7.7          3.0  2.118962    False
+137  Iris-virginica           5.6          2.4           6.3          3.4  0.964365    False
+138  Iris-virginica           5.5          1.8           6.4          3.1  0.648074    False
+139  Iris-virginica           4.8          1.8           6.0          3.0  0.316228    False
+140  Iris-virginica           5.4          2.1           6.9          3.1  1.090871    False
+141  Iris-virginica           5.6          2.4           6.7          3.1  1.122497    False
+142  Iris-virginica           5.1          2.3           6.9          3.1  1.122497    False
+143  Iris-virginica           5.1          1.9           5.8          2.7  0.331662    False
+144  Iris-virginica           5.9          2.3           6.8          3.2  1.319091    False
+145  Iris-virginica           5.7          2.5           6.7          3.3  1.256981    False
+146  Iris-virginica           5.2          2.3           6.7          3.0  0.948683    False
+147  Iris-virginica           5.0          1.9           6.3          2.5  0.655744    False
+148  Iris-virginica           5.2          2.0           6.5          3.0  0.640312    False
+149  Iris-virginica           5.4          2.3           6.2          3.4  0.768115    False
+150  Iris-virginica           5.1          1.8           5.9          3.0  0.000000    False
 </pre></div>
 </div>
-<img alt="_images/140946a7c82f46cefdb40335f2544b5b70c33ccc9597070d2b14212228b36ded.png" src="_images/140946a7c82f46cefdb40335f2544b5b70c33ccc9597070d2b14212228b36ded.png" />
-<img alt="_images/9675b0d7724b1bf28b19784698dca0984af7d7e5bfc5695e141d2fbc36f87414.png" src="_images/9675b0d7724b1bf28b19784698dca0984af7d7e5bfc5695e141d2fbc36f87414.png" />
+<img alt="_images/c70db5e57b21b799cb1e245b851213e5d1cdb9d1ca34088586063b002c9c5502.png" src="_images/c70db5e57b21b799cb1e245b851213e5d1cdb9d1ca34088586063b002c9c5502.png" />
+<img alt="_images/fd5aa2a07e1168dc73ae96cde652d0c7e2a635a8a541188fc029635af8a9f482.png" src="_images/fd5aa2a07e1168dc73ae96cde652d0c7e2a635a8a541188fc029635af8a9f482.png" />
 </div>
 </div>
 </section>
@@ -793,157 +792,156 @@ Grafik 2: petal_length vs. petal_width.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           class  petal_length  petal_width  sepal_length  sepal_width  distance  outlier
-151            ????           5.1          3.2           5.8          1.0  0.000000    False
-114  Iris-virginica           5.0          2.0           5.7          2.5  1.926136    False
-115  Iris-virginica           5.1          2.4           5.8          2.8  1.969772    False
-147  Iris-virginica           5.0          1.9           6.3          2.5  2.049390    False
-120  Iris-virginica           5.0          1.5           6.0          2.2  2.092845    False
-143  Iris-virginica           5.1          1.9           5.8          2.7  2.140093    False
-102  Iris-virginica           5.1          1.9           5.8          2.7  2.140093    False
-122  Iris-virginica           4.9          2.0           5.6          2.8  2.181742    False
-133  Iris-virginica           5.6          2.2           6.4          2.8  2.202272    False
- 69 Iris-versicolor           4.5          1.5           6.2          2.2  2.202272    False
-112  Iris-virginica           5.3          1.9           6.4          2.7  2.231591    False
-129  Iris-virginica           5.6          2.1           6.4          2.8  2.249444    False
-124  Iris-virginica           4.9          1.8           6.3          2.7  2.267157    False
- 73 Iris-versicolor           4.9          1.5           6.3          2.5  2.330236    False
-127  Iris-virginica           4.8          1.8           6.2          2.8  2.334524    False
- 84 Iris-versicolor           5.1          1.6           6.0          2.7  2.343075    False
-109  Iris-virginica           5.8          1.8           6.7          2.5  2.347339    False
-146  Iris-virginica           5.2          2.3           6.7          3.0  2.372762    False
-107  Iris-virginica           4.5          1.7           4.9          2.5  2.381176    False
-148  Iris-virginica           5.2          2.0           6.5          3.0  2.437212    False
-150  Iris-virginica           5.1          1.8           5.9          3.0  2.443358    False
-105  Iris-virginica           5.8          2.2           6.5          3.0  2.445404    False
- 88 Iris-versicolor           4.4          1.3           6.3          2.3  2.457641    False
-116  Iris-virginica           5.3          2.3           6.4          3.2  2.459675    False
-104  Iris-virginica           5.6          1.8           6.3          2.9  2.463737    False
-128  Iris-virginica           4.9          1.8           6.1          3.0  2.467793    False
-139  Iris-virginica           4.8          1.8           6.0          3.0  2.467793    False
-141  Iris-virginica           5.6          2.4           6.7          3.1  2.471841    False
-135  Iris-virginica           5.6          1.4           6.1          2.6  2.477902    False
-113  Iris-virginica           5.5          2.1           6.8          3.0  2.523886    False
-134  Iris-virginica           5.1          1.5           6.3          2.8  2.525866    False
-142  Iris-virginica           5.1          2.3           6.9          3.1  2.535744    False
- 54 Iris-versicolor           4.0          1.3           5.5          2.3  2.569047    False
-117  Iris-virginica           5.5          1.8           6.5          3.0  2.570992    False
-111  Iris-virginica           5.1          2.0           6.5          3.2  2.601922    False
-149  Iris-virginica           5.4          2.3           6.2          3.4  2.611513    False
-101  Iris-virginica           6.0          2.5           6.3          3.3  2.615339    False
- 55 Iris-versicolor           4.6          1.5           6.5          2.8  2.621068    False
-138  Iris-virginica           5.5          1.8           6.4          3.1  2.624881    False
-137  Iris-virginica           5.6          2.4           6.3          3.4  2.626785    False
- 71 Iris-versicolor           4.8          1.8           5.9          3.2  2.626785    False
- 79 Iris-versicolor           4.5          1.5           6.0          2.9  2.626785    False
-140  Iris-virginica           5.4          2.1           6.9          3.1  2.630589    False
-145  Iris-virginica           5.7          2.5           6.7          3.3  2.636285    False
- 78 Iris-versicolor           5.0          1.7           6.7          3.0  2.658947    False
- 64 Iris-versicolor           4.7          1.4           6.1          2.9  2.664583    False
- 91 Iris-versicolor           4.4          1.2           5.5          2.6  2.672078    False
- 90 Iris-versicolor           4.0          1.3           5.5          2.5  2.675818    False
- 56 Iris-versicolor           4.5          1.3           5.7          2.8  2.687006    False
-121  Iris-virginica           5.7          2.3           6.9          3.2  2.687006    False
- 67 Iris-versicolor           4.5          1.5           5.6          3.0  2.700000    False
-144  Iris-virginica           5.9          2.3           6.8          3.2  2.700000    False
- 95 Iris-versicolor           4.2          1.3           5.6          2.7  2.711088    False
- 85 Iris-versicolor           4.5          1.5           5.4          3.0  2.722132    False
- 74 Iris-versicolor           4.7          1.2           6.1          2.8  2.736786    False
- 63 Iris-versicolor           4.0          1.0           6.0          2.2  2.744085    False
-103  Iris-virginica           5.9          2.1           7.1          3.0  2.745906    False
- 77 Iris-versicolor           4.8          1.4           6.8          2.8  2.751363    False
- 92 Iris-versicolor           4.6          1.4           6.1          3.0  2.753180    False
-125  Iris-virginica           5.7          2.1           6.7          3.3  2.769476    False
- 62 Iris-versicolor           4.2          1.5           5.9          3.0  2.776689    False
- 93 Iris-versicolor           4.0          1.2           5.8          2.6  2.787472    False
-100 Iris-versicolor           4.1          1.3           5.7          2.8  2.803569    False
- 60 Iris-versicolor           3.9          1.4           5.2          2.7  2.816026    False
- 98 Iris-versicolor           4.3          1.3           6.2          2.9  2.831960    False
- 97 Iris-versicolor           4.2          1.3           5.7          2.9  2.835489    False
- 59 Iris-versicolor           4.6          1.3           6.6          2.9  2.847806    False
- 70 Iris-versicolor           3.9          1.1           5.6          2.5  2.853069    False
- 72 Iris-versicolor           4.0          1.3           6.1          2.8  2.854820    False
- 81 Iris-versicolor           3.8          1.1           5.5          2.4  2.854820    False
- 75 Iris-versicolor           4.3          1.3           6.4          2.9  2.867054    False
- 57 Iris-versicolor           4.7          1.6           6.3          3.3  2.874022    False
- 87 Iris-versicolor           4.7          1.5           6.7          3.1  2.875761    False
- 83 Iris-versicolor           3.9          1.2           5.8          2.7  2.886174    False
- 76 Iris-versicolor           4.4          1.4           6.6          3.0  2.893095    False
- 52 Iris-versicolor           4.5          1.5           6.4          3.2  2.906888    False
-131  Iris-virginica           6.1          1.9           7.4          2.8  2.913760    False
- 53 Iris-versicolor           4.9          1.5           6.9          3.1  2.924038    False
- 89 Iris-versicolor           4.1          1.3           5.6          3.0  2.941088    False
- 86 Iris-versicolor           4.5          1.6           6.0          3.4  2.952965    False
- 68 Iris-versicolor           4.1          1.0           5.8          2.7  2.954657    False
- 96 Iris-versicolor           4.2          1.2           5.7          3.0  2.969848    False
- 82 Iris-versicolor           3.7          1.0           5.5          2.4  2.974895    False
- 66 Iris-versicolor           4.4          1.4           6.7          3.1  2.991655    False
-130  Iris-virginica           5.8          1.6           7.2          3.0  3.001666    False
- 61 Iris-versicolor           3.5          1.0           5.0          2.0  3.006659    False
-108  Iris-virginica           6.3          1.8           7.3          2.9  3.043025    False
-136  Iris-virginica           6.1          2.3           7.7          3.0  3.069202    False
- 65 Iris-versicolor           3.6          1.3           5.6          2.9  3.083829    False
-126  Iris-virginica           6.0          1.8           7.2          3.2  3.093542    False
- 51 Iris-versicolor           4.7          1.4           7.0          3.2  3.111270    False
- 80 Iris-versicolor           3.5          1.0           5.7          2.6  3.157531    False
-110  Iris-virginica           6.1          2.5           7.2          3.6  3.195309    False
-119  Iris-virginica           6.9          2.3           7.7          2.6  3.196873    False
- 94 Iris-versicolor           3.3          1.0           5.0          2.3  3.226453    False
-106  Iris-virginica           6.6          2.1           7.6          3.0  3.271085    False
- 58 Iris-versicolor           3.3          1.0           4.9          2.4  3.293934    False
-123  Iris-virginica           6.7          2.0           7.7          2.8  3.293934    False
- 99 Iris-versicolor           3.0          1.1           5.1          2.5  3.400000    False
-118  Iris-virginica           6.7          2.2           7.7          3.8  3.874274    False
-132  Iris-virginica           6.4          2.0           7.9          3.8  3.921734    False
- 24     Iris-setosa           1.7          0.5           5.1          3.3  4.962862    False
- 26     Iris-setosa           1.6          0.2           5.0          3.0  5.088222    False
- 44     Iris-setosa           1.6          0.6           5.0          3.5  5.089204    False
- 25     Iris-setosa           1.9          0.2           4.8          3.4  5.099020    False
- 42     Iris-setosa           1.3          0.3           4.5          2.3  5.121523    False
- 45     Iris-setosa           1.9          0.4           5.1          3.8  5.139066    False
- 21     Iris-setosa           1.7          0.2           5.4          3.4  5.145872    False
- 27     Iris-setosa           1.6          0.4           5.0          3.4  5.146844    False
- 31     Iris-setosa           1.6          0.2           4.8          3.1  5.163332    False
- 32     Iris-setosa           1.5          0.4           5.4          3.4  5.169139    False
- 46     Iris-setosa           1.4          0.3           4.8          3.0  5.205766    False
- 30     Iris-setosa           1.6          0.2           4.7          3.2  5.224940    False
- 35     Iris-setosa           1.5          0.1           4.9          3.1  5.271622    False
- 38     Iris-setosa           1.5          0.1           4.9          3.1  5.271622    False
- 10     Iris-setosa           1.5          0.1           4.9          3.1  5.271622    False
-  4     Iris-setosa           1.5          0.2           4.6          3.1  5.273519    False
- 19     Iris-setosa           1.7          0.3           5.7          3.8  5.274467    False
-  6     Iris-setosa           1.7          0.4           5.4          3.9  5.288667    False
- 12     Iris-setosa           1.6          0.2           4.8          3.4  5.292447    False
- 40     Iris-setosa           1.5          0.2           5.1          3.4  5.311309    False
-  9     Iris-setosa           1.4          0.2           4.4          2.9  5.316014    False
- 13     Iris-setosa           1.4          0.1           4.8          3.0  5.319774    False
-  8     Iris-setosa           1.5          0.2           5.0          3.4  5.325411    False
- 28     Iris-setosa           1.5          0.2           5.2          3.5  5.345091    False
- 22     Iris-setosa           1.5          0.4           5.1          3.7  5.346027    False
- 50     Iris-setosa           1.4          0.2           5.0          3.3  5.349766    False
- 29     Iris-setosa           1.4          0.2           5.2          3.4  5.367495    False
- 18     Iris-setosa           1.4          0.3           5.1          3.5  5.370289    False
- 48     Iris-setosa           1.4          0.2           4.6          3.2  5.382379    False
-  7     Iris-setosa           1.4          0.3           4.6          3.4  5.412947    False
- 39     Iris-setosa           1.3          0.2           4.4          3.0  5.422177    False
- 11     Iris-setosa           1.5          0.2           5.4          3.7  5.423099    False
-  1     Iris-setosa           1.4          0.2           5.1          3.5  5.424942    False
-  3     Iris-setosa           1.3          0.2           4.7          3.2  5.430470    False
- 49     Iris-setosa           1.5          0.2           5.3          3.7  5.431390    False
- 47     Iris-setosa           1.6          0.2           5.1          3.8  5.438750    False
- 36     Iris-setosa           1.2          0.2           5.0          3.2  5.448853    False
- 20     Iris-setosa           1.5          0.3           5.1          3.8  5.449771    False
- 41     Iris-setosa           1.3          0.3           5.0          3.5  5.453439    False
- 37     Iris-setosa           1.3          0.2           5.5          3.5  5.457105    False
-  5     Iris-setosa           1.4          0.2           5.0          3.6  5.485435     True
- 43     Iris-setosa           1.3          0.2           4.4          3.2  5.499091     True
- 17     Iris-setosa           1.3          0.4           5.4          3.9  5.554278     True
- 14     Iris-setosa           1.1          0.1           4.3          3.0  5.644466     True
- 16     Iris-setosa           1.5          0.4           5.7          4.4  5.689464     True
- 33     Iris-setosa           1.5          0.1           5.2          4.1  5.704384     True
- 34     Iris-setosa           1.4          0.2           5.5          4.2  5.746303     True
- 15     Iris-setosa           1.2          0.2           5.8          4.0  5.762812     True
- 23     Iris-setosa           1.0          0.2           4.6          3.6  5.831809     True
-  2     Iris-setosa          14.0          2.0          40.9         30.0 46.407542     True
+150  Iris-virginica           5.1          1.8           5.9          3.0  0.000000    False
+128  Iris-virginica           4.9          1.8           6.1          3.0  0.282843    False
+139  Iris-virginica           4.8          1.8           6.0          3.0  0.316228    False
+143  Iris-virginica           5.1          1.9           5.8          2.7  0.331662    False
+ 71 Iris-versicolor           4.8          1.8           5.9          3.2  0.360555    False
+ 84 Iris-versicolor           5.1          1.6           6.0          2.7  0.374166    False
+122  Iris-virginica           4.9          2.0           5.6          2.8  0.458258    False
+127  Iris-virginica           4.8          1.8           6.2          2.8  0.469042    False
+124  Iris-virginica           4.9          1.8           6.3          2.7  0.538516    False
+134  Iris-virginica           5.1          1.5           6.3          2.8  0.538516    False
+114  Iris-virginica           5.0          2.0           5.7          2.5  0.583095    False
+ 64 Iris-versicolor           4.7          1.4           6.1          2.9  0.608276    False
+112  Iris-virginica           5.3          1.9           6.4          2.7  0.624500    False
+148  Iris-virginica           5.2          2.0           6.5          3.0  0.640312    False
+115  Iris-virginica           5.1          2.4           5.8          2.8  0.640312    False
+138  Iris-virginica           5.5          1.8           6.4          3.1  0.648074    False
+147  Iris-virginica           5.0          1.9           6.3          2.5  0.655744    False
+111  Iris-virginica           5.1          2.0           6.5          3.2  0.663325    False
+ 57 Iris-versicolor           4.7          1.6           6.3          3.3  0.670820    False
+ 92 Iris-versicolor           4.6          1.4           6.1          3.0  0.670820    False
+ 79 Iris-versicolor           4.5          1.5           6.0          2.9  0.685565    False
+117  Iris-virginica           5.5          1.8           6.5          3.0  0.721110    False
+ 73 Iris-versicolor           4.9          1.5           6.3          2.5  0.734847    False
+ 67 Iris-versicolor           4.5          1.5           5.6          3.0  0.734847    False
+ 86 Iris-versicolor           4.5          1.6           6.0          3.4  0.754983    False
+116  Iris-virginica           5.3          2.3           6.4          3.2  0.761577    False
+149  Iris-virginica           5.4          2.3           6.2          3.4  0.768115    False
+ 74 Iris-versicolor           4.7          1.2           6.1          2.8  0.774597    False
+135  Iris-virginica           5.6          1.4           6.1          2.6  0.781025    False
+129  Iris-virginica           5.6          2.1           6.4          2.8  0.793725    False
+ 78 Iris-versicolor           5.0          1.7           6.7          3.0  0.812404    False
+ 56 Iris-versicolor           4.5          1.3           5.7          2.8  0.830662    False
+ 85 Iris-versicolor           4.5          1.5           5.4          3.0  0.836660    False
+133  Iris-virginica           5.6          2.2           6.4          2.8  0.836660    False
+120  Iris-virginica           5.0          1.5           6.0          2.2  0.866025    False
+ 62 Iris-versicolor           4.2          1.5           5.9          3.0  0.948683    False
+ 87 Iris-versicolor           4.7          1.5           6.7          3.1  0.948683    False
+146  Iris-virginica           5.2          2.3           6.7          3.0  0.948683    False
+137  Iris-virginica           5.6          2.4           6.3          3.4  0.964365    False
+ 98 Iris-versicolor           4.3          1.3           6.2          2.9  0.994987    False
+ 59 Iris-versicolor           4.6          1.3           6.6          2.9  1.000000    False
+113  Iris-virginica           5.5          2.1           6.8          3.0  1.029563    False
+ 77 Iris-versicolor           4.8          1.4           6.8          2.8  1.048809    False
+ 97 Iris-versicolor           4.2          1.3           5.7          2.9  1.053565    False
+ 76 Iris-versicolor           4.4          1.4           6.6          3.0  1.067708    False
+ 75 Iris-versicolor           4.3          1.3           6.4          2.9  1.072381    False
+ 91 Iris-versicolor           4.4          1.2           5.5          2.6  1.081665    False
+ 69 Iris-versicolor           4.5          1.5           6.2          2.2  1.086278    False
+125  Iris-virginica           5.7          2.1           6.7          3.3  1.086278    False
+140  Iris-virginica           5.4          2.1           6.9          3.1  1.090871    False
+ 96 Iris-versicolor           4.2          1.2           5.7          3.0  1.100000    False
+ 95 Iris-versicolor           4.2          1.3           5.6          2.7  1.113553    False
+141  Iris-virginica           5.6          2.4           6.7          3.1  1.122497    False
+142  Iris-virginica           5.1          2.3           6.9          3.1  1.122497    False
+ 66 Iris-versicolor           4.4          1.4           6.7          3.1  1.140175    False
+100 Iris-versicolor           4.1          1.3           5.7          2.8  1.153256    False
+ 89 Iris-versicolor           4.1          1.3           5.6          3.0  1.157584    False
+109  Iris-virginica           5.8          1.8           6.7          2.5  1.174734    False
+ 88 Iris-versicolor           4.4          1.3           6.3          2.3  1.178983    False
+ 72 Iris-versicolor           4.0          1.3           6.1          2.8  1.240967    False
+145  Iris-virginica           5.7          2.5           6.7          3.3  1.256981    False
+107  Iris-virginica           4.5          1.7           4.9          2.5  1.272792    False
+121  Iris-virginica           5.7          2.3           6.9          3.2  1.284523    False
+ 93 Iris-versicolor           4.0          1.2           5.8          2.6  1.319091    False
+144  Iris-virginica           5.9          2.3           6.8          3.2  1.319091    False
+ 68 Iris-versicolor           4.1          1.0           5.8          2.7  1.319091    False
+ 90 Iris-versicolor           4.0          1.3           5.5          2.5  1.367479    False
+ 83 Iris-versicolor           3.9          1.2           5.8          2.7  1.378405    False
+ 60 Iris-versicolor           3.9          1.4           5.2          2.7  1.476482    False
+130  Iris-virginica           5.8          1.6           7.2          3.0  1.489966    False
+ 70 Iris-versicolor           3.9          1.1           5.6          2.5  1.506652    False
+ 63 Iris-versicolor           4.0          1.0           6.0          2.2  1.581139    False
+126  Iris-virginica           6.0          1.8           7.2          3.2  1.593738    False
+ 65 Iris-versicolor           3.6          1.3           5.6          2.9  1.612452    False
+ 81 Iris-versicolor           3.8          1.1           5.5          2.4  1.643168    False
+ 82 Iris-versicolor           3.7          1.0           5.5          2.4  1.766352    False
+131  Iris-virginica           6.1          1.9           7.4          2.8  1.816590    False
+ 80 Iris-versicolor           3.5          1.0           5.7          2.6  1.843909    False
+108  Iris-virginica           6.3          1.8           7.3          2.9  1.846619    False
+110  Iris-virginica           6.1          2.5           7.2          3.6  1.881489    False
+136  Iris-virginica           6.1          2.3           7.7          3.0  2.118962    False
+ 61 Iris-versicolor           3.5          1.0           5.0          2.0  2.238303    False
+ 94 Iris-versicolor           3.3          1.0           5.0          2.3  2.275961    False
+106  Iris-virginica           6.6          2.1           7.6          3.0  2.286919    False
+ 58 Iris-versicolor           3.3          1.0           4.9          2.4  2.289105    False
+ 99 Iris-versicolor           3.0          1.1           5.1          2.5  2.406242    False
+123  Iris-virginica           6.7          2.0           7.7          2.8  2.424871    False
+132  Iris-virginica           6.4          2.0           7.9          3.8  2.523886    False
+118  Iris-virginica           6.7          2.2           7.7          3.8  2.569047    False
+119  Iris-virginica           6.9          2.3           7.7          2.6  2.624881    False
+ 45     Iris-setosa           1.9          0.4           5.1          3.8  3.671512    False
+ 24     Iris-setosa           1.7          0.5           5.1          3.3  3.738984    False
+ 25     Iris-setosa           1.9          0.2           4.8          3.4  3.764306    False
+ 19     Iris-setosa           1.7          0.3           5.7          3.8  3.806573    False
+ 21     Iris-setosa           1.7          0.2           5.4          3.4  3.811824    False
+  6     Iris-setosa           1.7          0.4           5.4          3.9  3.818377    False
+ 44     Iris-setosa           1.6          0.6           5.0          3.5  3.840573    False
+ 27     Iris-setosa           1.6          0.4           5.0          3.4  3.896152    False
+ 32     Iris-setosa           1.5          0.4           5.4          3.4  3.915354    False
+ 26     Iris-setosa           1.6          0.2           5.0          3.0  3.952215    False
+ 31     Iris-setosa           1.6          0.2           4.8          3.1  4.003748    False
+ 22     Iris-setosa           1.5          0.4           5.1          3.7  4.006245    False
+ 47     Iris-setosa           1.6          0.2           5.1          3.8  4.011234    False
+ 12     Iris-setosa           1.6          0.2           4.8          3.4  4.022437    False
+ 11     Iris-setosa           1.5          0.2           5.4          3.7  4.032369    False
+ 28     Iris-setosa           1.5          0.2           5.2          3.5  4.032369    False
+ 30     Iris-setosa           1.6          0.2           4.7          3.2  4.036087    False
+ 40     Iris-setosa           1.5          0.2           5.1          3.4  4.039802    False
+ 49     Iris-setosa           1.5          0.2           5.3          3.7  4.045986    False
+ 20     Iris-setosa           1.5          0.3           5.1          3.8  4.060788    False
+  8     Iris-setosa           1.5          0.2           5.0          3.4  4.060788    False
+ 18     Iris-setosa           1.4          0.3           5.1          3.5  4.102438    False
+ 35     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 38     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 10     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 29     Iris-setosa           1.4          0.2           5.2          3.4  4.110961    False
+ 16     Iris-setosa           1.5          0.4           5.7          4.4  4.113393    False
+ 50     Iris-setosa           1.4          0.2           5.0          3.3  4.141256    False
+ 46     Iris-setosa           1.4          0.3           4.8          3.0  4.141256    False
+ 37     Iris-setosa           1.3          0.2           5.5          3.5  4.172529    False
+ 17     Iris-setosa           1.3          0.4           5.4          3.9  4.178516    False
+ 33     Iris-setosa           1.5          0.1           5.2          4.1  4.189272    False
+ 41     Iris-setosa           1.3          0.3           5.0          3.5  4.213075    False
+  7     Iris-setosa           1.4          0.3           4.6          3.4  4.217819    False
+ 13     Iris-setosa           1.4          0.1           4.8          3.0  4.217819    False
+ 34     Iris-setosa           1.4          0.2           5.5          4.2  4.224926    False
+ 48     Iris-setosa           1.4          0.2           4.6          3.2  4.240283    False
+  9     Iris-setosa           1.4          0.2           4.4          2.9  4.302325    False
+ 36     Iris-setosa           1.2          0.2           5.0          3.2  4.315090    False
+ 15     Iris-setosa           1.2          0.2           5.8          4.0  4.333590    False
+ 42     Iris-setosa           1.3          0.3           4.5          2.3  4.374929    False
+ 39     Iris-setosa           1.3          0.2           4.4          3.0  4.387482    False
+ 43     Iris-setosa           1.3          0.2           4.4          3.2  4.392038    False
+ 23     Iris-setosa           1.0          0.2           4.6          3.6  4.628175    False
+ 14     Iris-setosa           1.1          0.1           4.3          3.0  4.631414    False
+  3     Iris-setosa          13.0          2.0          40.7         30.2 44.870146    False
+  2     Iris-setosa          14.0          2.0          40.9         30.0 45.091573    False
+  4     Iris-setosa          15.0          2.0          40.6         30.1 45.128151    False
+  5     Iris-setosa          14.0          2.0          50.0         30.6 52.780868    False
+  1     Iris-setosa          14.0          2.0          50.1         30.5 52.812309    False
+ 54 Iris-versicolor          40.0         13.0          50.5         20.3 60.265247     True
+102  Iris-virginica          50.1         19.0          50.8         20.7 68.191935     True
+ 55 Iris-versicolor          40.6         15.0          60.5         20.8 68.793096     True
+ 52 Iris-versicolor          40.5         15.0          60.4         30.2 71.676286     True
+ 53 Iris-versicolor          40.9         15.0          60.9         30.1 72.216965     True
+104  Iris-virginica          50.6         18.0          60.3         20.9 74.916353     True
+105  Iris-virginica          50.8         20.2          60.5         30.0 78.340347     True
+ 51 Iris-versicolor          40.7         14.0          70.0         30.2 79.150805     True
+101  Iris-virginica          60.0         20.5          60.3         30.3 84.073480     True
+103  Iris-virginica          50.9         20.1          70.1         30.0 85.341490     True
 </pre></div>
 </div>
 </div>
@@ -994,7 +992,7 @@ Grafik 2: petal_length vs. petal_width.</p>
       </div>
     </a>
     <a class="right-next"
-       href="knn.html"
+       href="knn_dina.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
